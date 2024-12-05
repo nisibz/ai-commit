@@ -40,7 +40,7 @@ local function get_openai_api_key()
 end
 
 local function get_git_diff()
-	local diff = vim.fn.system("git diff")
+	local diff = vim.fn.system("git diff --cached")
 	if vim.v.shell_error ~= 0 or diff == "" then
 		vim.notify("No git diff available", vim.log.levels.WARN)
 		return nil
