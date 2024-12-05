@@ -7,11 +7,13 @@ A simple Neovim plugin that prints "Hello World".
 Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 
 ```lua
-{
-    "nisibz/nvim-hello-world",
-    event = "VeryLazy",
-    config = function()
-        require("hello-world").setup()
-    end
+return {
+  "nisibz/ai-commit",
+  event = "VeryLazy",
+  opts = {
+    -- todo_id = 1,
+  },
+  keys = {
+  },
 }
 ```
