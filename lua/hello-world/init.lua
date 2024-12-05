@@ -1,7 +1,7 @@
 local M = {}
 
 function M.hello()
-	print("Hello World!")
+	print("Hello World Updated!")
 end
 
 function M.setup(opts)
