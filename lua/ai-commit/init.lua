@@ -56,10 +56,10 @@ local function call_openai_api(diff)
 	end
 
 	local curl_cmd = string.format(
-		"curl -s -X POST https://api.openai.com/v1/engines/davinci-codex/completions "
+		"curl -s -X POST https://api.openai.com/v1/completions "
 			.. "-H 'Content-Type: application/json' "
 			.. "-H 'Authorization: Bearer %s' "
-			.. '-d \'{"prompt": "%s", "max_tokens": 100}\'',
+			.. '-d \'{"model": "text-davinci-003", "prompt": "%s", "max_tokens": 100}\'',
 		api_key,
 		vim.fn.escape(diff, '"')
 	)
