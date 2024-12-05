@@ -36,6 +36,7 @@ function M.hello()
 end
 
 function M.setup(opts)
+	opts = opts or {} -- Ensure opts is a table
 	-- Set the todo_id from options or default to 1
 	todo_id = opts.todo_id or 1
 	vim.api.nvim_create_user_command("HelloWorld", function()
