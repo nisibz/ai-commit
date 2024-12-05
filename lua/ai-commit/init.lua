@@ -1,5 +1,4 @@
 local M = {}
-local env = require("dotenv").load() -- Assuming you have a dotenv library to load .env files
 
 local todo_id = 1
 
@@ -37,7 +36,7 @@ function M.hello()
 end
 
 local function get_openai_api_key()
-	return env.OPENAI_API_KEY
+	return os.getenv("OPENAI_API_KEY")
 end
 
 local function get_git_diff()
