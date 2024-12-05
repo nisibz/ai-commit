@@ -1,7 +1,9 @@
 local M = {}
 
+local todo_id = 1
+
 function M.fetch_todo()
-	local curl_cmd = "curl -s https://jsonplaceholder.typicode.com/todos/1"
+	local curl_cmd = string.format("curl -s https://jsonplaceholder.typicode.com/todos/%d", todo_id)
 	local response = vim.fn.system(curl_cmd)
 	local success, decoded = pcall(vim.json.decode, response)
 
@@ -34,7 +36,8 @@ function M.hello()
 end
 
 function M.setup(opts)
-	-- Add any setup options here if needed
+	-- Set the todo_id from options or default to 1
+	todo_id = opts.todo_id or 1
 	vim.api.nvim_create_user_command("HelloWorld", function()
 		M.hello()
 	end, {})
